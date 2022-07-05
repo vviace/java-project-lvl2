@@ -8,11 +8,8 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 
-import java.io.File;
-import java.math.BigInteger;
-import java.nio.file.Files;
 import java.nio.file.Path;
-import java.security.MessageDigest;
+
 import java.util.concurrent.Callable;
 
 @Command(name = "gendiff",
@@ -24,13 +21,13 @@ class App implements Callable<Integer> {
     @Parameters(index = "1", description = " path to second file")
     private Path filepath2;
 
-    @Option(names={"-h", "--help"}, description=" Show this help message and exit.", usageHelp = true)
-    boolean help;
+//    @Option(names = {"-h", "--help"}, description = " Show this help message and exit.", usageHelp = true)
+//    boolean help;
 
-    @Option(names={"-V", "--version"}, description=" Print version information and exit.")
+    @Option(names = {"-V", "--version"}, description = " Print version information and exit.")
     private boolean version;
 
-    @Option(names={"-f", "--format"}, description=" output format [default: stylish]")
+    @Option(names = {"-f", "--format"}, description = " output format [default: stylish]")
     private String format = "stylish";
 
     @Override
