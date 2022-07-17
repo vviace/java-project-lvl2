@@ -7,9 +7,6 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
-
-import java.nio.file.Path;
-
 import java.util.concurrent.Callable;
 
 @Command(name = "gendiff",
@@ -22,10 +19,10 @@ class App implements Callable<Integer> {
     private String filepath2;
 
     @Option(names = {"-h", "--help"}, description = " Show this help message and exit.", usageHelp = true)
-    boolean help;
+    private boolean help;
 
     @Option(names = {"-V", "--version"}, description = " Print version information and exit.")
-    private boolean version;
+    private String version;
 
     @Option(names = {"-f", "--format"}, description = " output format: stylish, json [default: stylish]")
     private String format;

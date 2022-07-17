@@ -2,7 +2,6 @@ package hexlet.code;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
@@ -12,29 +11,24 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 public class Differ {
-//    public static void getData(String content) throws Exception {
-//        return parse(content);
-//    }
-    
     public static String generate(String filepath1, String filepath2, String format) throws IOException {
-        // TODO: read files,
+        //  read files
         Map<String, Object> data1 = getData(filepath1);
         Map<String, Object> data2 = getData(filepath2);
-        //  TODO: find diference;
-        System.out.println(genDiff(data1,data2));
-        return "";
-        // TODO: Format data ;
+        //   find difference
+        return genDiff(data1, data2);
+        //  Format data
 
     }
-    public static Map<String, Object>  getData (String filepath) throws IOException {
-       String content = Files.readString(Path.of(filepath));
-       ObjectMapper mapper = new ObjectMapper();
-       Map<String, Object> result = mapper.readValue(content, Map.class);
+    public static Map<String, Object> getData(String filepath) throws IOException {
+        String content = Files.readString(Path.of(filepath));
+        ObjectMapper mapper = new ObjectMapper();
+        Map<String, Object> result = mapper.readValue(content, Map.class);
 
 //       for (Map.Entry<String, Object> entry : result.entrySet()) {
 //           System.out.println(entry.getKey() + ": " + entry.getValue().toString());
 //       }
-       return result;
+        return result;
     }
 
     public static String genDiff(Map<String, Object> data1, Map<String, Object> data2) {
