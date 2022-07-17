@@ -16,10 +16,10 @@ import java.util.concurrent.Callable;
         description = "Compares two configuration files and shows a difference.")
 class App implements Callable<Integer> {
     @Parameters(index = "0", description = " path to first file")
-    private Path filepath1;
+    private String filepath1;
 
     @Parameters(index = "1", description = " path to second file")
-    private Path filepath2;
+    private String filepath2;
 
 //    @Option(names = {"-h", "--help"}, description = " Show this help message and exit.", usageHelp = true)
 //    boolean help;
@@ -27,13 +27,12 @@ class App implements Callable<Integer> {
     @Option(names = {"-V", "--version"}, description = " Print version information and exit.")
     private boolean version;
 
-    @Option(names = {"-f", "--format"}, description = " output format [default: stylish]")
-    private String format = "stylish";
+    @Option(names = {"-f", "--format"}, description = " output format: stylish, json [default: stylish]")
+    private String format;
 
     @Override
     public Integer call() throws Exception { // your business logic goes here...
-        //Differ.generate(); TODO
-
+        System.out.println(Differ.generate(filepath1, filepath2, format));
         return 0;
     }
 
