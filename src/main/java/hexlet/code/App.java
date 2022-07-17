@@ -21,8 +21,8 @@ class App implements Callable<Integer> {
     @Parameters(index = "1", description = " path to second file")
     private String filepath2;
 
-//    @Option(names = {"-h", "--help"}, description = " Show this help message and exit.", usageHelp = true)
-//    boolean help;
+    @Option(names = {"-h", "--help"}, description = " Show this help message and exit.", usageHelp = true)
+    boolean help;
 
     @Option(names = {"-V", "--version"}, description = " Print version information and exit.")
     private boolean version;
