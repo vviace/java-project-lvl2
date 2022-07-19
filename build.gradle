@@ -25,14 +25,22 @@ compileJava {
 }
 
 dependencies {
+
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
     // Use JUnit test framework.
-    testImplementation 'junit:junit:4.13.2'
+    testImplementation(
+            'org.junit.jupiter:junit-jupiter-params:5.8.2',
+            'org.slf4j:slf4j-log4j12:2.0.0-alpha6',
+            'org.assertj:assertj-core:3.22.0'
+    )
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:30.1.1-jre'
     implementation 'info.picocli:picocli:4.6.3'
     // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.0.1'
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-yaml
+    implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: '2.13.3'
 }
 
 application {

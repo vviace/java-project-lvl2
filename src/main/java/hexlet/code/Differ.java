@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 public class Differ {
-    public static String generate(String filepath1, String filepath2, String format) throws IOException {
+    public static String generate(String filepath1, String filepath2) throws IOException {
         //  read files
         Map<String, Object> data1 = getData(filepath1);
         Map<String, Object> data2 = getData(filepath2);
@@ -34,7 +34,7 @@ public class Differ {
     public static String genDiff(Map<String, Object> data1, Map<String, Object> data2) {
         Map<String, String> result = new LinkedHashMap<>();
         Set<String> keys = new TreeSet<>(data1.keySet());
-        String differ = "{ \n";
+        String differ = "{\n";
         keys.addAll(data2.keySet());
         for (String key : keys) {
             if (!data1.containsKey(key)) {
