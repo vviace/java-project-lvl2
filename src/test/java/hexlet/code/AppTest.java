@@ -12,6 +12,12 @@ public class AppTest {
         String expected = Files.readString(Path.of("src/test/resources/StylishResult"));
         String actual = Differ.generate("src/test/resources/file1.json", "src/test/resources/file2.json");
         assertThat(actual).isEqualTo(expected);
-
+    }
+    @Test
+    public void testDifferYaml() throws Exception {
+        String expected = Files.readString(Path.of("src/test/resources/StylishResult"));
+        String actual = Differ.generate("src/test/resources/file1.yml", "src/test/resources/file2.yml");
+        System.out.println(actual);
+        assertThat(actual).isEqualTo(expected);
     }
 }
