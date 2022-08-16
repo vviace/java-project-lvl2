@@ -11,6 +11,15 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class Differ {
+    public static String generate(String filepath1, String filepath2) throws Exception {
+
+        Map<String, Object> data1 = getData(filepath1);
+        Map<String, Object> data2 = getData(filepath2);
+        //   find difference
+        Map<String, Status> diff = genDiff(data1, data2);
+        //  Format data
+        return Stylish.stylish(diff);
+    }
     public static String generate(String filepath1, String filepath2, String format) throws Exception {
 
         Map<String, Object> data1 = getData(filepath1);

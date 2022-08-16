@@ -12,10 +12,10 @@ import java.util.concurrent.Callable;
 @Command(name = "gendiff",
         description = "Compares two configuration files and shows a difference.")
 class App implements Callable<Integer> {
-    @Parameters(index = "filepath1", description = " path to first file")
+    @Parameters(index = "0", description = " path to first file")
     private String filepath1;
 
-    @Parameters(index = "filepath2", description = " path to second file")
+    @Parameters(index = "1", description = " path to second file")
     private String filepath2;
 
     @Option(names = {"-h", "--help"}, description = " Show this help message and exit.", usageHelp = true)
@@ -24,9 +24,9 @@ class App implements Callable<Integer> {
     @Option(names = {"-V", "--version"}, description = " Print version information and exit.")
     private String version;
 
-    @Option(names = {"-f", "--format"}, arity = "0..1",
+    @Option(names = {"-f", "--format"},
             description = " output format: stylish, plain, json, default: ${DEFAULT-VALUE}",
-            defaultValue = "stylish", fallbackValue = "stylish")
+            defaultValue = "stylish")
     private String format;
 
     @Override
