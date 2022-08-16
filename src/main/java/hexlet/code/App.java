@@ -30,7 +30,7 @@ class App implements Callable<Integer> {
     private String format;
 
     @Override
-    public Integer call() throws Exception { // your business logic goes here...
+    public Integer call() throws Exception {
         try {
             System.out.println(Differ.generate(filepath1, filepath2, format));
         } catch (Exception e) {
@@ -39,9 +39,6 @@ class App implements Callable<Integer> {
         }
         return 0;
     }
-  //  public void run() { System.out.printf("format = %s%n", format); }
-    // this example implements Callable, so parsing, error handling and handling user
-    // requests for usage help or version help can be done with one line of code.
     public static void main(String... args) {
         int exitCode = new CommandLine(new App()).execute(args);
         System.exit(exitCode);

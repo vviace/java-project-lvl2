@@ -6,19 +6,21 @@ import org.junit.jupiter.params.provider.ValueSource;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-
 import static org.assertj.core.api.Assertions.assertThat;
+
 public final class AppTest {
     private static String resultJson;
     private static String resultPlain;
     private static String resultStylish;
     private static final String PATH = "src/test/resources/";
+
     @BeforeAll
     public static void init() throws IOException {
         resultJson = Files.readString(Path.of("src/test/resources/JsonResult"));
         resultPlain = Files.readString(Path.of("src/test/resources/PlainResult"));
         resultStylish = Files.readString(Path.of("src/test/resources/StylishResult"));
     }
+
     @ParameterizedTest
     @ValueSource(strings = {"json", "yml"})
     public void test(String format) throws Exception {
