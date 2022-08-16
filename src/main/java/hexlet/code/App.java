@@ -7,17 +7,15 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
-
-import java.io.File;
 import java.util.concurrent.Callable;
 
 @Command(name = "gendiff",
         description = "Compares two configuration files and shows a difference.")
 class App implements Callable<Integer> {
-    @Parameters(index = "0", description = " path to first file")
+    @Parameters(index = "filepath1", description = " path to first file")
     private String filepath1;
 
-    @Parameters(index = "1", description = " path to second file")
+    @Parameters(index = "filepath2", description = " path to second file")
     private String filepath2;
 
     @Option(names = {"-h", "--help"}, description = " Show this help message and exit.", usageHelp = true)
@@ -26,15 +24,22 @@ class App implements Callable<Integer> {
     @Option(names = {"-V", "--version"}, description = " Print version information and exit.")
     private String version;
 
-    @Option(names = {"-f", "--format"}, description = " output format: stylish, json [default: stylish]")
+    @Option(names = {"-f", "--format"}, arity = "0..1",
+            description = " output format: stylish, plain, json, default: ${DEFAULT-VALUE}",
+            defaultValue = "stylish", fallbackValue = "stylish")
     private String format;
 
     @Override
     public Integer call() throws Exception { // your business logic goes here...
-        System.out.println(Differ.generate(filepath1, filepath2));
+        try {
+            System.out.println(Differ.generate(filepath1, filepath2, format));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return 1;
+        }
         return 0;
     }
-
+  //  public void run() { System.out.printf("format = %s%n", format); }
     // this example implements Callable, so parsing, error handling and handling user
     // requests for usage help or version help can be done with one line of code.
     public static void main(String... args) {
