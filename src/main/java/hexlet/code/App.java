@@ -25,7 +25,7 @@ class App implements Callable<Integer> {
     private String version;
 
     @Option(names = {"-f", "--format"},
-            description = " output format: stylish, plain, json, default: ${DEFAULT-VALUE}",
+            description = " output format: stylish, plain, json. Default format: ${DEFAULT-VALUE}",
             defaultValue = "stylish")
     private String format;
 

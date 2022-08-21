@@ -13,7 +13,7 @@ public class Parser {
         switch (extension) {
             case "yml" : return parseYml(content);
             case "json" : return parseJson(content);
-            default: throw new Exception("unknown extension" + extension);
+            default: throw new Exception("unknown extension " + extension);
         }
 
     }
