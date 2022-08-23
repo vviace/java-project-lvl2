@@ -26,10 +26,10 @@ public class Differ {
         return Formatter.format(diff, format);
     }
     public static Map<String, Object> getData(String filepath) throws Exception {
-        int index = filepath.indexOf(".", 1);
+        int index = filepath.indexOf(".");
         int length = filepath.length();
 
-        String extension = filepath.indexOf(".", 1) > 0 ? filepath.substring(index + 1, length) : "";
+        String extension = filepath.indexOf(".") > 0 ? filepath.substring(index + 1, length) : "";
         String content = Files.readString(Path.of(filepath));
         return Parser.parse(content, extension);
     }
