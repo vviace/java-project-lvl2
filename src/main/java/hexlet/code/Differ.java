@@ -1,7 +1,6 @@
 package hexlet.code;
 
 import hexlet.code.formatter.Formatter;
-import hexlet.code.formatter.Stylish;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Map;
