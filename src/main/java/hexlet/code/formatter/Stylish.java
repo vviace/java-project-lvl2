@@ -11,18 +11,18 @@ public class Stylish {
         for (Map.Entry<String, Status> item : diff.entrySet()) {
             String status = item.getValue().getStatusName();
             switch (status) {
-                case Status.ADDED: differ = differ + " + " + item.getKey() + ": "
+                case Status.ADDED: differ = differ + "  + " + item.getKey() + ": "
                         + item.getValue().getCurrentValue() + "\n";
                     break;
-                case Status.DELETED: differ = differ + " - " + item.getKey() + ": "
+                case Status.DELETED: differ = differ + "  - " + item.getKey() + ": "
                         + item.getValue().getPreviousValue() + "\n";
                     break;
-                case Status.CHANGED: differ = differ + " - " + item.getKey() + ": "
+                case Status.CHANGED: differ = differ + "  - " + item.getKey() + ": "
                         + item.getValue().getPreviousValue() + "\n"
-                                                + " + " + item.getKey() + ": "
+                                                + "  + " + item.getKey() + ": "
                         + item.getValue().getCurrentValue() + "\n";
                     break;
-                case Status.UNCHANGED: differ = differ + "   "  + item.getKey() + ": "
+                case Status.UNCHANGED: differ = differ + "    "  + item.getKey() + ": "
                         + item.getValue().getCurrentValue() + "\n";
                     break;
 
