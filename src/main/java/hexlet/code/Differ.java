@@ -9,13 +9,7 @@ import java.util.Map;
 
 public class Differ {
     public static String generate(String filepath1, String filepath2) throws Exception {
-
-        Map<String, Object> data1 = getData(filepath1);
-        Map<String, Object> data2 = getData(filepath2);
-
-        Map<String, Status> diff = Difference.findDifference(data1, data2);
-
-        return Stylish.stylish(diff);
+        return generate(filepath1, filepath2, "stylish");
     }
     public static String generate(String filepath1, String filepath2, String format) throws Exception {
         Map<String, Object> data1 = getData(filepath1);
